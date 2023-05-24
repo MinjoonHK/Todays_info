@@ -1,0 +1,16 @@
+{
+  "name": "todays_info",
+  "version": "1.0.0",
+  "description": "Getting an scoop of information that will make help you to start your daily life!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pug": "^3.0.2"
+  }
+}
