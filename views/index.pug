@@ -12,20 +12,90 @@ html(lang="en")
         meta(property="og:description", content="Having a great start with a scoop of hottest information of the day!")
         //meta(property="og:image", content="")
         //meta(property="og:url", content="")
-        link(rel="stylesheet" href="/stylesheets/style.css")
+        link(rel="stylesheet" href="/stylesheets/navbar_swiper.css")
+        link(rel="stylesheet" href="/stylesheets/main.css")
         link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous")
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css")
     body
-        div(class="navbar")
-            div(class="nav-title") 
-                i Today's Info
-            div(class="nav-items")
-                ul
-                    li Daily
-                    li Culture
-                    li Social Media 
-                    li News 
-                    li Login
-
+        header
+            div(class="navbar")
+                div(class="nav-title") 
+                    i Information Today
+                div(class="nav-items")
+                    ul
+                        li 
+                            a(onclick="showHello()") Daily
+                        li Culture
+                        li Social Media 
+                        li News 
+            div(class="swiper")
+                div(class="swiper-wrapper")
+                    div(class="swiper-slide")
+                        div(class="slide1")
+                            div(class="slider1_box1 slider1Box")
+                                img(class="slider1_image" src="/static/images/street.jpg")
+                            div(class="slider1_box2 slider1Box")
+                                ul
+                                    each title in news
+                                        a(href=title.url)
+                                            li= title.title
+                    div(class="swiper-slide")
+                        div(class="slide1")
+                            div(class="slider1_box1 slider1Box")
+                                img(class="slider1_image" src="/static/images/artist.jpg")
+                            div(class="slider1_box2 slider1Box")
+                                ol
+                                    each music, index in music_list 
+                                        if index < 5
+                                            span
+                                                img(src=music.image)
+                                                li= music.name
+                    div(class="swiper-slide")
+                        div(class="slide1")
+                            div(class="slider1_box1 slider1Box")
+                                img(class="slider1_image" src="/static/images/mug.jpg")
+                            div(class="slider1_box2 slider1Box")
+                                br
+                                br
+                                p 
+                                        h2
+                                            b Advice for you!
+                                div(class="quotes")
+                                    p
+                                        b
+                                            q= quotes
+                div(class="swiper-pagination")
+                div(class="swiper-scrollbar")
+        
+        div(class="main_container")
+            div(class="main_items daily")
+                div(class="main_title") Daily
+                    hr
+                div(class="main_contents")
+                    div(class="main_contents_items quotes")
+                    div(class="main_contents_items whether")
+                    div(class="main_contents_items")
+            div(class="main_items culture")
+                div(class="main_title") Culture
+                    hr
+                div(class="main_contents")
+            div(class="main_items social_media")
+                div(class="main_title") Social Media
+                    hr
+                div(class="main_contents")
+            div(class="main_items news")
+                div(class="main_title") News
+                    hr
+                div(class="main_contents")
+                    div(class="main_contents_items quotes")
+                    div(class="main_contents_items whether")
+                    div(class="main_contents_items")
+        
+        footer 
             
+
+        
         script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+        script(src="/static/swipe.js")
                 
