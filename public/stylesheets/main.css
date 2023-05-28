@@ -2,9 +2,11 @@
 
 .main_container{
     background-color: rgb(239,221,183);
-    position:absolute;
     width:100%;
-    height:auto;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
 }
 
 .main_items{
@@ -13,7 +15,9 @@
     border-color: rgb(100,68,130);
     border-width: 5px;
     border-radius: 50px;
-    margin: 50px 200px;
+    margin-bottom:50px;
+    margin-top:50px;
+    width:75%;
     height:400px;
 }
 

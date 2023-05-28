@@ -14,15 +14,15 @@ app.use(express.static('public'));
 
 app.get('/', (req, res, next) => {
     Promise.all([
-        fetch('https://api.adviceslip.com/advice').then(response => response.json()),
+        fetch('https://api.quotable.io/quotes/random').then(response => response.json()),
         fetch('https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=8b60bbeb5da24ed2bf2105332fc9ca3a').then(response => response.json()),
         fetch('https://raw.githubusercontent.com/KoreanThinker/billboard-json/main/billboard-hot-100/recent.json').then(response => response.json()),
     ])
     .then(data_list => {
-        const advice = data_list[0].slip.advice;
+        const advice = data_list[0][0];
+        console.log(advice);
         const news = data_list[1].articles;
         const music = data_list[2].data;
-        console.log(music);
         res.render('index', { quotes: advice, news: news, music_list: music });
     })
     .catch(error => {
@@ -31,24 +31,6 @@ app.get('/', (req, res, next) => {
     });
 });
 
-// app.get('/', (req,res,next) => {
-//     fetch('https://api.adviceslip.com/advice')
-//     .then(response => response.json())
-//     .then(myJson => {
-//         obj = myJson.slip.advice
-//         console.log(obj)
-//         res.render('index',{quotes: obj})
-//         next();
-// })})
-
-// app.get('/', function(req,res) {
-//     fetch('https://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=8b60bbeb5da24ed2bf2105332fc9ca3a')
-//     .then(response => response.json())
-//     .then(myJson => {
-//         obj = myJson.articles
-//         console.log(obj)
-//      res.render('index',{news: obj})
-// })})
 
 app.listen(PORT, function(){
     console.log(`server is running and up at ${PORT} PORT`)

@@ -12,6 +12,10 @@ html(lang="en")
         meta(property="og:description", content="Having a great start with a scoop of hottest information of the day!")
         //meta(property="og:image", content="")
         //meta(property="og:url", content="")
+        script(src="https://kit.fontawesome.com/3dad2d8c99.js" crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/sweetalert2@10")
+        script(src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous")
+        link(rel="stylesheet" href="/stylesheets/footer.css")
         link(rel="stylesheet" href="/stylesheets/navbar_swiper.css")
         link(rel="stylesheet" href="/stylesheets/main.css")
         link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous")
@@ -19,53 +23,69 @@ html(lang="en")
     body
         header
             div(class="navbar")
-                div(class="nav-title") 
+                div(class="nav-title")
                     i Information Today
-                div(class="nav-items")
-                    ul
-                        li 
-                            a(onclick="showHello()") Daily
-                        li Culture
-                        li Social Media 
-                        li News 
+                //- div(class="nav-items")
+                //-     ul
+                //-         li 
+                //-             a(onclick="showHello()") Daily
+                //-         li Culture
+                //-         li Social Media 
+                //-         li News 
             div(class="swiper")
                 div(class="swiper-wrapper")
                     div(class="swiper-slide")
                         div(class="slide1")
-                            div(class="slider1_box1 slider1Box")
+                            div(class="slider_box1 slider1Box")
                                 img(class="slider1_image" src="/static/images/street.jpg")
                             div(class="slider1_box2 slider1Box")
-                                ul
+                                br
+                                br
+                                h2 BBC Top 10 Headlines
+                                ol
                                     each title in news
                                         a(href=title.url)
-                                            li= title.title
+                                            li(class="news_title")= title.title
                     div(class="swiper-slide")
                         div(class="slide1")
-                            div(class="slider1_box1 slider1Box")
-                                img(class="slider1_image" src="/static/images/artist.jpg")
-                            div(class="slider1_box2 slider1Box")
-                                ol
-                                    each music, index in music_list 
-                                        if index < 5
-                                            span
-                                                img(src=music.image)
-                                                li= music.name
+                            div(class="slider_box1 slider1Box")
+                                img(class="slider1_image" src="/static/images/artist2.jpg")
+                            div(class="slider2_box2 slider1Box")
+                                div(class="music_title") 
+                                    h1 Music Today
+                                    p 
+                                        h2 Billboard Hot tracks
+                                div(class="music_list")
+                                    ol
+                                        each music, index in music_list
+                                            if index < 5
+                                                    li
+                                                        div(class="flex_box")
+                                                            div(class="artist_title")
+                                                                b
+                                                                    p=music.name
+                                                                    p=music.artist
+                                                            div(class="music_image")
+                                                                img(class="music_img" src=music.image)
                     div(class="swiper-slide")
                         div(class="slide1")
-                            div(class="slider1_box1 slider1Box")
+                            div(class="slider_box1 slider1Box")
                                 img(class="slider1_image" src="/static/images/mug.jpg")
-                            div(class="slider1_box2 slider1Box")
+                            div(class="slider3_box2 slider1Box")
                                 br
                                 br
                                 p 
                                         h2
-                                            b Advice for you!
+                                            b Small advice for you!
                                 div(class="quotes")
                                     p
                                         b
-                                            q= quotes
-                div(class="swiper-pagination")
-                div(class="swiper-scrollbar")
+                                            q= quotes.content
+                                    br
+                                    p 
+                                        b= quotes.authorSlug
+                //- div(class="swiper-pagination")
+                //- div(class="swiper-scrollbar")
         
         div(class="main_container")
             div(class="main_items daily")
@@ -75,27 +95,20 @@ html(lang="en")
                     div(class="main_contents_items quotes")
                     div(class="main_contents_items whether")
                     div(class="main_contents_items")
-            div(class="main_items culture")
-                div(class="main_title") Culture
-                    hr
-                div(class="main_contents")
-            div(class="main_items social_media")
-                div(class="main_title") Social Media
-                    hr
-                div(class="main_contents")
-            div(class="main_items news")
-                div(class="main_title") News
-                    hr
-                div(class="main_contents")
-                    div(class="main_contents_items quotes")
-                    div(class="main_contents_items whether")
-                    div(class="main_contents_items")
-        
         footer 
-            
-
+            p Copyright @ 2023 Park Min Joon
+            div
+                p
+                    a(href="https://github.com/MinjoonHK")
+                        i(class="fa-brands fa-github fa-2xl")
+                    a(href="#." class="alertStart" onclick="copyToClipboard('minjoon.park.hk@gmail.com');")
+                        i(class="fa-regular fa-envelope fa-2xl")
+                    a(href="https://www.linkedin.com/in/minjoonpark/")
+                        i(class="fa-brands fa-linkedin fa-2xl")
+                    
         
         script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous")
         script(src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js")
+        script(src="/static/footer.js")
         script(src="/static/swipe.js")
                 

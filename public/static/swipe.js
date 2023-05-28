@@ -10,13 +10,14 @@ const swiper = new Swiper('.swiper', {
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+      clickable: true,
     },
   
     scrollbar: {
       el: '.swiper-scrollbar',
     },
 
-    // autoplay:{
-    //   delay:5000,
-    // },
+    autoplay:{
+      delay:5000,
+    },
   });
